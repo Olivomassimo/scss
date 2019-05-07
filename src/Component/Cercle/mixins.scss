@@ -1,0 +1,7 @@
+@mixin cercle($color, $size, $border) {
+    height: $size ;
+    width: $size ;
+    border: $border solid $color;
+    border-radius: $size;
+}
+ 

@@ -1,57 +1,49 @@
-$red : #e74c3c;
+@import './mixins.scss';
 
+$primary1é : #e74c3c;
 @for $i from 1 through 7{
   .circle#{$i}{
-    display:flex;
+    @include cercle($color: darken($primary1é, 5% * $i), $size: 10px * $i , $border: 1px * $i);
     top: 0;
     left: 10px * $i;
-    width: 10px * $i;
-    height: 10px * $i;
-    border: 1px * $i solid  darken($red, 5% * $i);
-    border-radius:100%;
     margin: -2px * $i;
+    /*darken : foction qui fonce une couleur
+    on lui passe une couelur et la quantité en % pour la foncer
+    */
 
     
   }
 }
 
-
-.container{
+%center-elem{
     display:flex;
     align-items: center;
     justify-content: center;
+    
+}
 
-
+.container{
+    @extend %center-elem;
 }
 
 .cercle8 {
-    height: 60px;
-    width: 60px;
-    border-radius: 50%;
-    border: 4px solid rgb(146, 45, 45);
-    margin: 10px;
+    @include cercle($color: $primary1é, $size: 60px , $border: 4px);
+    margin: 30px;
 
 }
 .container-cercle1 {
-    display:flex;
-    align-items: center;
-    justify-content: center;
+    @extend %center-elem;
     padding: 40px;
     
 }
 
 .cercle9 {
-    height: 140px;
-    width: 140px;
-    border-radius: 50%;
-    border: 8px solid rgb(146, 45, 45);
-    box-shadow: 5px 8px 4px rgb(146, 45, 45) inset 
-   ,5px 8px 4px rgb(146, 45, 45);
+    @include cercle($color: $primary1é, $size: 140px , $border: 8px);
+    box-shadow: 5px 8px 4px rgb(146, 45, 45) inset, 5px 8px 4px rgb(146, 45, 45);
    margin: 40px;
    
 } 
 .la-fin {
-    display:flex;
-    justify-content: center;
+    @extend %center-elem;
     padding: 40px;
 }
